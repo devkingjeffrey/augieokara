@@ -228,7 +228,7 @@ strong, b { font-weight: 600; }
 .faq details p { padding-bottom: 26px; margin: 0; }
 .faq a { color: var(--orange-dark); font-weight: 500; }
 
-/* Speaking */
+/* Topic cards */
 .topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 44px; }
 .topic { background: #181818; border-radius: 28px; padding: 32px 28px; }
 .topic .num { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--orange); font-weight: 600; margin-bottom: 18px; }
@@ -400,7 +400,6 @@ strong, b { font-weight: 600; }
           <li><a href="about.html">About</a></li>
           <li><a href="books.html">Books</a></li>
           <li><a href="faq.html" aria-current="page">FAQ</a></li>
-          <li><a href="speaking.html">Speaking</a></li>
         </ul>
         <a class="btn nav-cta" href="books.html"><span class="sun-icon"></span>Read my books</a>
         <button class="burger" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -444,16 +443,12 @@ strong, b { font-weight: 600; }
         <p>[Placeholder: confirm, and note any mature themes.] Some stories deal with grown-up subjects, so check each book's details.</p>
       </details>
       <details>
-        <summary>Can I book you for an event, school visit or interview?</summary>
-        <p>Yes. Please send the details through the <a href="speaking.html">speaking enquiries</a> page and I or my team will reply.</p>
-      </details>
-      <details>
         <summary>Where can I buy your books?</summary>
         <p>[Placeholder: add your retailer, bookshop or store links here.]</p>
       </details>
       <details>
         <summary>How can I contact you?</summary>
-        <p>For speaking, media and event requests, use the <a href="speaking.html">enquiry form</a>. For everything else, I'd love to hear from you on social media.</p>
+        <p>I'd love to hear from you on social media; the links are in the footer below.</p>
       </details>
       </div>
     </div>
@@ -482,7 +477,6 @@ strong, b { font-weight: 600; }
         <li><a href="about.html">About</a></li>
         <li><a href="books.html">Books</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="speaking.html">Speaking</a></li>
       </ul>
       <ul class="footer-links">
         <!-- PLACEHOLDER: replace # with real profile links -->
@@ -528,32 +522,6 @@ function openMail(subject, lines) {
     "mailto:" + CONTACT_EMAIL +
     "?subject=" + encodeURIComponent(subject) +
     "&body=" + encodeURIComponent(body);
-}
-
-// Speaking enquiry form
-const speakingForm = document.getElementById("speaking-form");
-if (speakingForm) {
-  speakingForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (!speakingForm.reportValidity()) return;
-    const d = new FormData(speakingForm);
-    openMail("Speaking enquiry: " + (d.get("Event name") || "New event"), [
-      "Name: " + d.get("First name") + " " + d.get("Last name"),
-      "Email: " + d.get("Email"),
-      "Organisation: " + d.get("Organisation"),
-      "Event name: " + d.get("Event name"),
-      "Event type: " + d.get("Event type"),
-      "Date: " + d.get("Event date"),
-      "Location: " + d.get("Location"),
-      "Expected audience: " + d.get("Audience size"),
-      "Budget or honorarium: " + d.get("Budget"),
-      "",
-      "Details:",
-      d.get("Details"),
-    ]);
-    const status = document.getElementById("speaking-status");
-    if (status) status.textContent = "Your email app should now open with your enquiry ready to send.";
-  });
 }
 
 // Newsletter sign-up
